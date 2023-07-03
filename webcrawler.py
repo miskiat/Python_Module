@@ -8,4 +8,9 @@ def trade_spider(max_pages):
        source_code = requests.get(url)
        plain_text = source_code.text
        soup = BeautifulSoup(plain_text)
+       for link in soup.findAll('a', {'class': 'product-title'}):
+           href = link.get('herf')
+           print(href)
+
+
 
