@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 def trade_spider(max_pages):
     page = 1
-    while page < max_pages:
+    while page <= max_pages:
        url = 'https://buybetter.ng/product-category/bath-body/page/' + str(page)
        source_code = requests.get(url)
        plain_text = source_code.text
@@ -11,6 +11,10 @@ def trade_spider(max_pages):
        for link in soup.findAll('a', {'class': 'product-title'}):
            href = link.get('herf')
            print(href)
+       page += 1
+
+trade_spider(1)
+
 
 
 
